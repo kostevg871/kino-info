@@ -6,7 +6,7 @@ const { Header, Content } = Layout;
 
 export const BaseLayout = () => {
   return (
-    <Layout className={styles.main}>
+    <Layout>
       <Header className={styles.header}>Кино справочник</Header>
       <Content className={styles.content}>
         <Outlet />
