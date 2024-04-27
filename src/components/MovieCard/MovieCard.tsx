@@ -1,14 +1,19 @@
 import { Card, Image, Flex } from "antd";
 import styles from "./styles.module.css";
 import { IMovies } from "../../utils/types";
+import { useNavigate } from "react-router-dom";
 
 interface Props {
   movie: IMovies;
 }
 
 export const MovieCard = ({ movie }: Props) => {
+  const navigate = useNavigate();
   return (
     <Card
+      onClick={() => {
+        navigate(`/movie/${movie.id}`);
+      }}
       className={styles.card}
       key={movie.id}
       bordered={false}
