@@ -6,20 +6,4 @@
   color: white;
 }
 
-.card {
-  background: none;
-  box-shadow: none !important;
-}
 
-.rate {
-  color: white;
-  font-size: 32px;
-  font-weight: bold;
-}
-
-.info {
-  justify-content: center;
-  padding-left: 5%;
-  color: white;
-  flex-direction: column;
-}
