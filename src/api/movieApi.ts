@@ -7,6 +7,7 @@ const API_KEY = import.meta.env.VITE_TOKEN_API;
 interface ParamsType {
   page?: number;
   limit?: number;
+  id?: number;
 }
 
 export const moviesApi = createApi({
@@ -40,7 +41,22 @@ export const moviesApi = createApi({
         };
       },
     }),
+    getSimularMovies: builder.query<MoviesApiResponse, string>({
+      providesTags: ["Movies"],
+      query: (query) => {
+        return {
+          url: `/v1.4/movie/search?query=${query}`,
+          headers: {
+            "X-API-KEY": API_KEY,
+          },
+        };
+      },
+    }),
   }),
 });
 
-export const { useGetMoviesQuery, useGetMovieByIDQuery } = moviesApi;
+export const {
+  useGetMoviesQuery,
+  useGetMovieByIDQuery,
+  useGetSimularMoviesQuery,
+} = moviesApi;
