@@ -18,12 +18,11 @@ export const moviesApi = createApi({
     getMovies: builder.query<MoviesApiResponse, ParamsType>({
       providesTags: ["Movies"],
       query: (params) => {
-        const { page = 1, limit = 10 } = params || {};
+        const { page = 1 } = params || {};
         return {
           url: "/v1.4/movie",
           params: {
             page,
-            limit,
           },
           headers: {
             "X-API-KEY": API_KEY,

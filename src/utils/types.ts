@@ -16,7 +16,6 @@ export interface MoviesApiResponse {
   pages: number;
   status: string;
   total: number;
-  isSeries: boolean;
 }
 
 export interface IPosterMovie {
@@ -44,14 +43,17 @@ export interface IPersons {
 export interface IMovie {
   id: number;
   name: string;
-  type: string;
   year: number;
   description: string;
   rating: IRaiting;
-  persons: IPersons[];
   poster: IPosterMovie;
   genres: IGenres[];
-  isSeries: boolean;
+  movieLength: number;
+  premiere: IPremier;
+}
+
+interface IPremier {
+  world: string;
 }
 
 export interface IReview {

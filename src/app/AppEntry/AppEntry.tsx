@@ -21,6 +21,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
             colorTextDisabled: "gray",
           },
         },
+        token: { colorText: "white" },
       }}
     >
       <React.StrictMode>

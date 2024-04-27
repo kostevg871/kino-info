@@ -5,15 +5,21 @@ import Paragraph from "antd/es/typography/Paragraph";
 import { IMovies } from "../../utils/types";
 import styles from "./styles.module.css";
 import { MovieCard } from "../../components/MovieCard/MovieCard";
-import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 
 const { Title } = Typography;
 
 export const MainPage = () => {
-  const [pageNumber, setPageNumber] = useState(1);
+  const [pageParams, setPageParams] = useSearchParams();
+  const pageParamsQuery = Number(pageParams.get("page")) || 1;
   const { data, isLoading, isFetching, isSuccess } = useGetMoviesQuery({
-    page: pageNumber,
+    page: pageParamsQuery,
   });
+
+  const handlerPaginationChange = (page: number) => {
+    pageParams.set("page", `${page}`);
+    setPageParams(pageParams);
+  };
 
   return (
     <main className={styles.content}>
@@ -23,8 +29,8 @@ export const MainPage = () => {
           className={styles.pagination}
           total={data.total}
           showSizeChanger={false}
-          current={pageNumber}
-          onChange={setPageNumber}
+          current={pageParamsQuery}
+          onChange={(page) => handlerPaginationChange(page)}
         />
       ) : (
         <></>
@@ -39,7 +45,7 @@ export const MainPage = () => {
       ) : (
         <div className={styles.movies}>
           {data?.docs.map((movie: IMovies) => {
-            return <MovieCard movie={movie} />;
+            return <MovieCard movie={movie} key={movie.id} />;
           })}
         </div>
       )}
