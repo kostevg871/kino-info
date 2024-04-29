@@ -4,6 +4,7 @@ import Title from "antd/es/typography/Title";
 import Flex from "antd/es/flex";
 import { Card, Image } from "antd";
 import styles from "./styles.module.css";
+import placeholder from "./../../assets/placeholder.png";
 
 interface Props {
   nameMovie: string;
@@ -32,6 +33,7 @@ export const SimularMovie = ({ nameMovie }: Props) => {
             >
               <Image
                 width={200}
+                fallback={placeholder}
                 alt={movie.name}
                 src={movie.poster.previewUrl}
                 preview={false}
