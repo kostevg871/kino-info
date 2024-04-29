@@ -1,0 +1,28 @@
+* {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(23, 23, 23);
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 36px;
+  width: 100%;
+  padding: 12px;
+  background-color: rgb(217, 95, 85);
+  color: white;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  background-color: rgb(23, 23, 23);
+}

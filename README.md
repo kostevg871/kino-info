@@ -1,30 +1,41 @@
-# React + TypeScript + Vite
+# Тестовое задание для стажёра Frontend
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Необходимо сверстать список фильмов и карточку фильма, используя API https://developer.themoviedb.org/docs/getting-started.
+Можно воспользоваться базой Кинопоиска (ограничение на 200 запросов в сутки) либо любым другим API.
 
-Currently, two official plugins are available:
+Основная технология React, остальные на твой выбор.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## Запуск
 
-## Expanding the ESLint configuration
+Проект доступен по ссылке: <http://localhost:5173/>
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Локально
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
+```bash
+git clone https://github.com/kostevg871/kino-info.git
+npm install
+VITE_TOKEN_API=<your api token> npm run start
 ```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Используемые технологии:
+
+    - antd: компоненты
+    - rtk query: менеджер состояния
+    - react-router-dom: навигация
+
+## Выполненые функциональные требования
+
+### Страница со списком всех фильмов
+
+1. Отображается список фильмов и сериалов
+2. Реализована  пагинация
+3. Можно перейти на страницы с отдельным фильмом
+
+### Страница с отдельным фильмом:
+
+Отображается информация о фильме или сериале, в том числе:
+
+- название фильма/сериала
+- описание
+- постер фильма
+- похожие фильмы
